@@ -22,6 +22,28 @@ EOF
 aws configure set plugins.cwlogs cwlogs
 aws configure set default.region $AWS_REGION
 
-push_log $LOG_FILE $LOG_GROUP
+for mapping in "$@"
+do
+	ctr=0
+	prev=''
+	while [ "$mapping" ]
+	do
+		iter=${mapping%%:*}
+		
+		ctr=$((ctr+1))
+		
+		if [ "$ctr" = "2" ] 
+		then
+			push_log $prev $iter
+		fi
+
+		prev=$iter
+
+		[ "$mapping" = "$iter" ] && \
+			mapping='' || \
+			mapping="${mapping#*:}"
+		
+	done
+done
 
 aws logs push --config-file awslogs.conf

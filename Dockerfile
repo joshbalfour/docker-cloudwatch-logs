@@ -12,6 +12,6 @@ RUN apk update && \
     apk --purge -v del curl && \
     rm -rf get-pip.py /var/cache/apk/* /root/.cache/* /usr/share/terminfo
 
-ADD boot.sh ./boot.sh
+ADD boot.sh /var/awslogs
 
-CMD /bin/sh boot.sh
+ENTRYPOINT ["/bin/sh", "/var/awslogs/boot.sh"]

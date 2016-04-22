@@ -8,9 +8,9 @@ Small (~18 MB) Alpine based Docker container for logging to Amazon CloudWatch Lo
 ```
 docker run \
 	-v /var/myapp/logs/:/mnt/logs
-	-e LOG_FILE=/mnt/logs/my-file.log \
-	-e LOG_GROUP=my-log-group \
 	-e AWS_REGION=eu-west-1 \
-	joshbalfour/cloudwatch-logs 
+	joshbalfour/cloudwatch-logs \
+	/mnt/logs/my-file.log:my-log-group \
+	/mnt/logs/my-other-file.log:my-other-group \
 ```
 
