@@ -1,5 +1,7 @@
 # Docker CloudWatch Logs
 
+[![](https://imagelayers.io/badge/joshbalfour/cloudwatch-logs:latest.svg)](https://imagelayers.io/?images=joshbalfour/cloudwatch-logs:latest 'Get your own badge on imagelayers.io')
+
 Small (~18 MB) Alpine based Docker container for logging to Amazon CloudWatch Logs
 
 
