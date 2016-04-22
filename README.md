@@ -14,3 +14,5 @@ docker run \
 	/mnt/logs/my-other-file.log:my-other-group \
 ```
 
+## Notes
+Remember to set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables if you're not running this on an EC2 instance under an IAM role.
