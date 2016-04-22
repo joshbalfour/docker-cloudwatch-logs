@@ -2,8 +2,6 @@ FROM alpine
 
 ENV AWS_REGION=us-east-1 LOG_FILE=/aws.conf LOG_GROUP=changeme
 
-ADD boot.sh ./boot.sh
-
 RUN apk update && \
     apk add --no-cache python curl && \
     curl https://bootstrap.pypa.io/get-pip.py -O && \
@@ -13,5 +11,7 @@ RUN apk update && \
     pip uninstall setuptools pip -y && \
     apk --purge -v del curl && \
     rm -rf get-pip.py /var/cache/apk/* /root/.cache/* /usr/share/terminfo
+
+ADD boot.sh ./boot.sh
 
 CMD /bin/sh boot.sh
