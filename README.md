@@ -11,6 +11,6 @@ docker run \
 	-e LOG_FILE=/mnt/logs/my-file.log \
 	-e LOG_GROUP=my-log-group \
 	-e AWS_REGION=eu-west-1 \
-	{docker hub repo}
+	joshbalfour/cloudwatch-logs
 ```
 
